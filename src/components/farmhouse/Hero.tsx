@@ -38,7 +38,7 @@ export default function Hero() {
           <div className="max-w-2xl animate-enter">
             <p className="text-sm uppercase tracking-widest text-foreground/70 mb-3">Nature-inspired stays & events</p>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
-              Serene Farmhouse Retreat
+              Varshini Farmhouse
             </h1>
             <p className="mt-4 text-lg text-foreground/80">
               An elegant escape surrounded by greenery — poolside relaxation, cozy bamboo hut, lush gardens, and a stage ready for celebrations.

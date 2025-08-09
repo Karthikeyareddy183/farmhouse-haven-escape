@@ -24,7 +24,7 @@ export default function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b">
       <nav className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4">
         <a href="#home" onClick={() => handleNavClick("home")} className="font-display text-xl tracking-tight story-link">
-          Serene Farmhouse
+          Varshini Farmhouse
         </a>
         <div className="hidden md:flex items-center gap-6">
           {sections.map((s) => (
