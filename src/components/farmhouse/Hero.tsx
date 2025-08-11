@@ -1,53 +1,33 @@
-import { useEffect, useRef } from "react";
+
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-farmhouse.jpg";
 
 export default function Hero() {
-  const heroRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = heroRef.current;
-    if (!el) return;
-    const handleMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      el.style.setProperty("--spot-x", `${x}%`);
-      el.style.setProperty("--spot-y", `${y}%`);
-    };
-    el.addEventListener("mousemove", handleMove);
-    return () => el.removeEventListener("mousemove", handleMove);
-  }, []);
-
-  const scrollToPricing = () => {
-    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
-  };
-
+  const gotoContact = () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  
   return (
-    <section id="home" aria-label="Serene Farmhouse hero" className="relative">
-      <div ref={heroRef} className="relative h-[90vh] min-h-[560px] w-full overflow-hidden pointer-spotlight">
-        <img
-          src={heroImage}
-          alt="Elegant farmhouse with swimming pool at golden hour"
-          className="absolute inset-0 size-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/10 to-background" />
-
-        <div className="relative z-10 max-w-7xl mx-auto h-full px-4 flex items-center">
-          <div className="max-w-2xl animate-enter">
-            <p className="text-sm uppercase tracking-widest text-foreground/70 mb-3">Nature-inspired stays & events</p>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
-              Varshini Farmhouse
-            </h1>
-            <p className="mt-4 text-lg text-foreground/80">
-              An elegant escape surrounded by greenery — poolside relaxation, cozy bamboo hut, lush gardens, and a stage ready for celebrations.
-            </p>
-            <div className="mt-8 flex gap-3">
-              <Button variant="hero" onClick={scrollToPricing} className="hover-scale">Book Your Stay</Button>
-              <a href="#gallery" className="story-link self-center">Explore the gallery</a>
-            </div>
-          </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/src/assets/hero-farmhouse.jpg')",
+        }}
+      />
+      <div className="absolute inset-0 bg-black/40" />
+      
+      <div className="relative z-10 text-center text-white px-4 max-w-4xl">
+        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+          Varshini Farm House
+        </h1>
+        <p className="text-lg md:text-xl lg:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
+          Your perfect escape in Ballari. Peaceful stays, memorable events, and natural beauty await.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button size="lg" variant="hero" onClick={gotoContact}>
+            Book Your Stay
+          </Button>
+          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black" onClick={gotoContact}>
+            Plan an Event
+          </Button>
         </div>
       </div>
     </section>
